@@ -1,6 +1,6 @@
 <cfsetting enablecfoutputonly="Yes">
 
-<cfparam name="url._url" default="http://www.google.com/" />
+<cfparam name="url.url" default="http://www.google.com/" />
 <cfset oGoogl = CreateObject("component", "googl").init() />
 
 <cfoutput>
@@ -28,14 +28,15 @@
 </head>
 <body>
 
-<h1>Google URL Shortener</h1>
+<h1>ColdFusion CFC for the Google URL Shortener API</h1>
 
-<p><a href="http://goo.gl/c4yjS">Read more about it.</a></p>
+<p><a href="http://goo.gl/c4yjS">Read more about goo.gl here.</a></p>
 
 <form method="post">
 
-	<p>URL:<br />
-	<input id="url" type="text" name="_url" value="#url._url#" /></p>
+	<label for="url">
+	URL: <input id="url" type="text" name="url" value="#url.url#" />
+	</label>
 
 	<p><input type="submit" name="submit" value="Shorten" /></p>
 
@@ -46,7 +47,10 @@
 <!--- shortener --->
 <cfif isDefined('form.submit')>
 	
-	<cfset s = oGoogl.shorten(form._url) />
+	<cfset s = oGoogl.shorten(form.url) />
+	<cfdump var="#s#" />
+	
+	<cfset s = oGoogl.shortenAsStruct(form.url) />
 	<cfdump var="#s#" />
 	
 </cfif>

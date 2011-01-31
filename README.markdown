@@ -1,6 +1,6 @@
 ## Google URL Shortener (goo.gl) ColdFusion Component (CFC)
 
-> Version 0.1
+> Version 0.2
 
 ## Contributors
 
@@ -8,10 +8,13 @@
 
 ## About
 
-A quick and simple ColdFusion interface/library to the Google URL Shortener service, goo.gl :)
+A quick and simple ColdFusion interface/library to the Google URL Shortener, goo.gl :)
 
 ## Features
 
 It's not complete yet, but current features are:
 
-* shorten a url (with or without an API)
+* override the default goo.gl API url
+* shorten a url (with or without an API key)
+	* return result as a json string
+	* return result as a struct
